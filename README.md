@@ -9,6 +9,35 @@
 
 本プロジェクトは、2025年8月22日0時以降の準天頂衛星システム（QZSS）DCレポートデータの詳細分析を行い、**台風第12号による重大災害**における災害対応システムの実証研究を実施しました。
 
+### 📡 データ取得方法
+
+本プロジェクトで分析したDCレポートデータは、[shirokawakita/qzss_disaster_information_receiver](https://github.com/shirokawakita/qzss_disaster_information_receiver)で紹介されている**QZSS災害情報受信機**を使用して取得されました。
+
+#### 使用機材
+- **GNSSモジュール**: u-blox NEO-M9N-00B-00
+- **気圧センサ**: BMP280
+- **IMUセンサ**: BMI270
+- **地磁気センサ**: BMM150
+- **アンテナコネクタ**: U.FL/IPEX
+- **ハードウェア**: M5Stack Core
+
+#### 対応メッセージタイプ
+- **MT 43**: DC Report（災害・危機管理通報）- 日本語解析対応
+- **MT 44**: DCX message（災害・危機管理通報拡張）- 日本語解析対応
+- **MT 47**: Monitoring Station Information
+- **MT 48**: PRN Mask
+- **MT 49**: Data Issue Number
+- **MT 50**: DGPS Correction
+- **MT 51**: Satellite Health
+- **MT 63**: Null message
+
+#### 対応衛星システム
+- **QZSS**: 準天頂衛星システム（メイン、L1S信号対応）
+- **GPS**: 全地球測位システム
+- **Galileo**: 欧州測位システム
+- **BeiDou**: 中国測位システム
+- **GLONASS**: ロシア測位システム
+
 ### 🎯 研究目的
 - QZSS DCシステムの運用状況と災害対応能力の評価
 - 実際の災害（台風第12号）におけるシステムの有効性実証
@@ -458,6 +487,7 @@ QZSS-7が78.7%の通信を処理しており、明らかに主要衛星として
 
 ### データソース
 2. **QZSS DCレポートデータ** (2025年8月6日-8月23日). "dc_reports_boot_00003.csv". 準天頂衛星システム（QZSS）.
+3. **QZSS災害情報受信機** (2025年). [shirokawakita/qzss_disaster_information_receiver](https://github.com/shirokawakita/qzss_disaster_information_receiver). GitHub.
 
 ### 分析手法
 3. **Python Data Analysis Libraries**:
@@ -510,8 +540,24 @@ QZSS-7が78.7%の通信を処理しており、明らかに主要衛星として
 - 消防庁災害対策室
 - 気象庁
 - オープンソースコミュニティ
+- [@shirokawakita](https://github.com/shirokawakita) - QZSS災害情報受信機の開発・提供
+- [@ksasao](https://github.com/ksasao) - QZSS DC Report/DCX受信に関する技術情報の提供
+- スイッチサイエンス - 元のコードベースと技術資料の提供
 
 ---
 
 **📧 連絡先**: [your-email@example.com](mailto:your-email@example.com)  
 **🌐 プロジェクトページ**: [https://github.com/your-username/qzs-dc-analysis](https://github.com/your-username/qzs-dc-analysis)
+
+## 📚 参考資料
+
+### ハードウェア・技術資料
+- [QZSS災害情報受信機](https://github.com/shirokawakita/qzss_disaster_information_receiver) - 本プロジェクトで使用したデータ取得機器
+- [M5Stack公式サイト](https://m5stack.com/) - ハードウェアプラットフォーム
+- [u-blox公式サイト](https://www.u-blox.com/) - GNSSモジュール
+- [QZSS公式サイト](https://qzss.go.jp/) - 準天頂衛星システム
+
+### 開発参考資料
+- [@ksasao氏のQZSS DC Report/DCX受信記事](https://github.com/ksasao) - QZSS DC Report/DCX受信に関する技術情報
+- [スイッチサイエンス - QZSS DC Report/DCX受信記事](https://www.switch-science.com/) - 元のコードベースの記事
+- [スイッチサイエンス - サンプルコード](https://github.com/SWITCHSCIENCE/QZSSDCX) - DCX解析ライブラリ
